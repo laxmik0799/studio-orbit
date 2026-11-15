@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    background: #0d0d0d;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-bone font-sans text-ink;
+    overflow-x: clip;
+  }
+  ::selection {
+    @apply bg-volt text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid #d4ff3a;
+    outline-offset: 3px;
+  }
+  /* Hide the native cursor only when the custom cursor is active (fine pointers). */
+  html.has-cursor,
+  html.has-cursor * {
+    cursor: none !important;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em];
+  }
+  .h-display {
+    @apply font-display font-extrabold uppercase leading-[0.86] tracking-[-0.04em];
+  }
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors;
+  }
+  .line-mask {
+    @apply block overflow-hidden pb-[0.06em];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
